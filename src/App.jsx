@@ -12,44 +12,56 @@ import {
   Leaf,
   Info
 } from 'lucide-react';
+import biteImage from './assets/bite.png';
 
 // --- Mock Data ---
 const RECIPES = [
   {
     id: 1,
-    title: "Creamy Wild Mushroom Risotto",
-    description: "Rich, comforting, and packed with umami flavor from dried porcini and fresh cremini mushrooms.",
-    category: "Main Course",
-    prepTime: "20 min",
-    cookTime: "40 min",
+    title: "Hot Butter Mushroom",
+    description: "ලොකු කුඩා කවුරුත් ආසාවෙන් කන බිම්මල් බයිට්",
+    category: "බිම්මල් බයිට්",
+    prepTime: "විනාඩි 10",
+    cookTime: "විනාඩි 10",
     servings: 4,
     calories: 450,
-    difficulty: "Medium",
-    imageColor: "bg-amber-100",
+    difficulty: "Easy",
+    image: biteImage,
     icon: "🍄",
     ingredients: [
-      "1 oz dried porcini mushrooms",
-      "4 cups vegetable broth",
-      "2 tbsp olive oil",
-      "1 lb mixed fresh mushrooms (cremini, shiitake)",
-      "2 shallots, minced",
-      "1 1/2 cups Arborio rice",
-      "1/2 cup dry white wine",
-      "1/2 cup grated Parmesan cheese",
-      "2 tbsp butter",
-      "Fresh thyme for garnish"
+      "බිම්මල් 🍄 - 200g",
+      "ලුණු කුඩු🧂- තේ හැදි 1/4",
+      "කහ කුඩු 🌿 - තේ හැදි 1/2 ",
+      "මිරිස් කුඩු 🌶️ - තේ හැදි 1/2 ",
+      "ගම්මිරිස් කුඩු ⚫ - තේ හැදි 1/4",
+      "ගසාගත් බිත්තර 🥚 - 1ක් ",
+      "ඉරිඟු පිටි 🌽 - මේස හැදි 2",
+      "පාන් පිටි 🍞 - මේස හැදි 1 ",
+      "පොල් තෙල් 🥥 ",
+      "ඉඟුරු සුදුලුනු පේස්ට් 🫚🧄 - මේස හැදි 1 1/2",
+      "වියලි මිරිස් 🌶️ - කරල් 4 ",
+      "මාළු මිරිස් 🌶️ - කරල් 2 ",
+      "බටර් 🧈 - මේස හැදි 2 ",
+      "මිරිස් පේස්ට් (Chili paste) 🌶️ - මේස හැදි 2",
+      "සෝයා සෝස් 🍶 - මේස හැදි 1",
+      "තක්කාලි සෝස් 🍅 - මේස හැදි 1",
+      "සීනි 🍬 - තේ හැදි 1",
     ],
     instructions: [
-      "Soak dried porcini in 1 cup hot water for 20 mins. Drain, reserving liquid, and chop.",
-      "Simmer broth and reserved mushroom liquid in a saucepan.",
-      "Sauté fresh mushrooms in olive oil until browned. Remove from pot.",
-      "Sauté shallots in the same pot. Add rice and toast for 2 mins.",
-      "Deglaze with wine, stirring until absorbed.",
-      "Add warm broth one ladle at a time, stirring constantly until absorbed before adding more.",
-      "Stir in cooked mushrooms, butter, and Parmesan. Season and serve."
+      "බිම්මල් සිහින්ව ඉරන්න.",
+      "බෝල් එකක් ගෙන ලුණු කුඩු තේ හැදි 1/4, කහ කුඩු තේ හැදි 1/2, මිරිස් කුඩු තේ හැදි 1/2, ගම්මිරිස් කුඩු තේ හැදි 1/4 එකතු කර හොදීන් මික්ස් කර ගන්න.",
+      "ගසාගත් බිත්තර ටිකක් එකතු කර හොදීන් මික්ස් කර ගන්න.",
+      "ඉරිඟු පිටි මේස හැදි 2 සහ පාන් පිටි මේස හැදි 1 එකතු කර හොදීන් මික්ස් කර ගන්න.",
+      "තච්චියට (pan එකට) තෙල් දමා fry කිරීමට අවශ්‍ය ප්‍රමාණයට තෙල් රත් කර ගන්න.",
+      "සිහින්ව ඉර ගත් බිම්මල් ටික ටික එකතු කර ගන්න, විනාඩියක් පමණ fry කරන්න, පසුව මික්ස් කරන ගමන් fry කරන්න, රන්වන් වර්ණය උනු පසු ඉවත් කර ගන්න.",
+      "පෑන් එකකට පොල් තෙල් මේස හැදි 1 එකතු කර රත් වීගෙන එද්දී ඉඟුරු සුදුලුනු පේස්ට් මේස හැදි 1 1/2 එකතු කර විනාඩියක් පමණ මික්ස් කර ගන්න.",
+      "කපාගත් වියලි මිරිස් කරල් 4 සහ මාළු මිරිස් කරල් 2 එකතු කර විනාඩියක් පමණ මික්ස් කර ගන්න, බටර් මේස හැදි 2 එකතු කර දිය වන තුරු මික්ස් කර ගන්න.",
+      "Chili paste මේස හැදි 2 එකතු කර තත්පර 30ක් මික්ස් කර ගන්න, සෝයා සෝස් මේස හැදි 1 සහ තක්කාලි සෝස් මේස හැදි 1 සහ සීනි තේ හැදි 1 විනාඩියක් පමණ මික්ස් කර ගන්න.",
+      "fry කරගත් බිම්මල් එකතු කර ගන්න සහ සිහින්ව කපාගත් ලුණු කොළ 3 එකතු කර ගන්න අවසානයේ ලිප නිවා විනාඩියක් පමණ මික්ස් කර ගන්න.",
+      "අවශ්‍ය පරිදි ලුණු එක් කර ගන්න",
     ]
   },
-  {
+  /*{
     id: 2,
     title: "Garlic Butter Stuffed Portobellos",
     description: "Juicy portobello caps stuffed with a savory mix of spinach, cheese, and breadcrumbs.",
@@ -203,7 +215,7 @@ const RECIPES = [
       "Top with mushroom mixture.",
       "Drizzle with balsamic glaze and serve."
     ]
-  }
+  }*/
 ];
 
 // --- Components ---
@@ -291,8 +303,16 @@ const RecipeCard = ({ recipe, onClick, isFavorite, toggleFavorite }) => (
     className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 overflow-hidden cursor-pointer flex flex-col h-full"
     onClick={onClick}
   >
-    <div className={`h-48 ${recipe.imageColor} flex items-center justify-center text-7xl relative overflow-hidden`}>
-      <span className="transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">{recipe.icon}</span>
+    <div className={`h-48 ${recipe.image ? '' : recipe.imageColor} flex items-center justify-center text-7xl relative overflow-hidden`}>
+      {recipe.image ? (
+        <img 
+          src={recipe.image} 
+          alt={recipe.title}
+          className="w-full h-full object-cover"
+        />
+      ) : (
+        <span className="transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">{recipe.icon}</span>
+      )}
       <div className="absolute top-3 right-3">
          <button 
            onClick={(e) => { e.stopPropagation(); toggleFavorite(recipe.id); }}
@@ -317,7 +337,7 @@ const RecipeCard = ({ recipe, onClick, isFavorite, toggleFavorite }) => (
         {recipe.description}
       </p>
       
-      <div className="flex items-center justify-between text-stone-400 text-sm border-t border-stone-100 pt-4 mt-auto">
+      <div className="flex items-center justify-between text-green-500 text-sm border-t border-stone-100 pt-4 mt-auto">
         <div className="flex items-center gap-1">
           <Clock size={16} />
           <span>{recipe.cookTime}</span>
@@ -347,21 +367,35 @@ const RecipeDetail = ({ recipe, onBack, isFavorite, toggleFavorite }) => (
 
     <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-stone-100">
       {/* Banner */}
-      <div className={`${recipe.imageColor} py-16 flex flex-col items-center justify-center relative`}>
-        <div className="text-9xl mb-4 drop-shadow-md animate-bounce-slow">{recipe.icon}</div>
-        <h1 className="text-3xl md:text-5xl font-bold text-stone-800 text-center px-4 mb-4">
-          {recipe.title}
-        </h1>
-        <div className="flex flex-wrap gap-4 justify-center">
-             <span className="bg-white/60 backdrop-blur-md px-4 py-1.5 rounded-full text-stone-800 font-semibold text-sm flex items-center gap-2">
-                <Clock size={16} /> Prep: {recipe.prepTime}
-             </span>
-             <span className="bg-white/60 backdrop-blur-md px-4 py-1.5 rounded-full text-stone-800 font-semibold text-sm flex items-center gap-2">
-                <Flame size={16} /> Cook: {recipe.cookTime}
-             </span>
-             <span className="bg-white/60 backdrop-blur-md px-4 py-1.5 rounded-full text-stone-800 font-semibold text-sm flex items-center gap-2">
-                <Info size={16} /> {recipe.calories} kcal
-             </span>
+      <div className={`${recipe.image ? '' : recipe.imageColor} py-16 flex flex-col items-center justify-center relative`}>
+        {recipe.image && (
+          <img 
+            src={recipe.image} 
+            alt={recipe.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
+        {!recipe.image && (
+          <div className="absolute inset-0 bg-gradient-to-b from-black/500 via-black/700 to-black/900"></div>
+        )}
+        <div className="relative z-10">
+          {!recipe.image && (
+            <div className="text-9xl mb-4 drop-shadow-md animate-bounce-slow">{recipe.icon}</div>
+          )}
+          <h1 className="text-3xl md:text-5xl font-bold text-white text-center px-4 mb-4">
+            {recipe.title}
+          </h1>
+          <div className="flex flex-wrap gap-5 justify-center">
+               <span className="bg-white/60 backdrop-blur-md px-4 py-1.5 rounded-full text-stone-800 font-semibold text-sm flex items-center gap-2">
+                  <Clock size={16} /> Prep: {recipe.prepTime}
+               </span>
+               <span className="bg-white/60 backdrop-blur-md px-4 py-1.5 rounded-full text-stone-800 font-semibold text-sm flex items-center gap-2">
+                  <Flame size={16} /> Cook: {recipe.cookTime}
+               </span>
+               <span className="bg-white/60 backdrop-blur-md px-4 py-1.5 rounded-full text-stone-800 font-semibold text-sm flex items-center gap-2">
+                  <Info size={16} /> {recipe.calories} kcal
+               </span>
+          </div>
         </div>
         
         <button 
@@ -382,7 +416,7 @@ const RecipeDetail = ({ recipe, onBack, isFavorite, toggleFavorite }) => (
             <ul className="space-y-3">
               {recipe.ingredients.map((ing, idx) => (
                 <li key={idx} className="flex items-start text-stone-600 text-sm md:text-base leading-relaxed">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 rounded-full bg-amber-500 mt-2 mr-3 flex-shrink-0"></span>
                   {ing}
                 </li>
               ))}
@@ -392,7 +426,9 @@ const RecipeDetail = ({ recipe, onBack, isFavorite, toggleFavorite }) => (
           <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100">
              <h4 className="font-bold text-amber-900 mb-2 text-sm uppercase tracking-wider">Chef's Tip</h4>
              <p className="text-amber-800 text-sm italic">
-               "For the best texture, never wash mushrooms with water! Instead, gently wipe them clean with a damp cloth or a brush."
+               <a href="https://youtu.be/OPnChfoP9vo?si=IcHXMeTyp0zXiXHm" target="_blank" rel="noopener noreferrer">
+                👉 Watch the video tutorial here
+               </a>
              </p>
           </div>
         </div>
