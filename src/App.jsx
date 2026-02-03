@@ -445,7 +445,7 @@ const RecipeDetail = ({ recipe, onBack, isFavorite, toggleFavorite }) => (
                   {idx + 1}
                 </div>
                 <div className="pt-2 pb-6 border-b border-stone-100 last:border-0 w-full">
-                  <p className="text-stone-700 text-lg leading-relaxed">{step}</p>
+                  <p className="text-stone-700 text-sm leading-relaxed">{step}</p>
                 </div>
               </div>
             ))}
