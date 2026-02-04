@@ -15,6 +15,7 @@ import {
 import biteImage from './assets/bite.png';
 import snackImage from './assets/snack.png';
 import mojuImage from './assets/moju.png';
+import wallImage from './assets/wall.jpg';
 
 // --- Mock Data ---
 const RECIPES = [
@@ -236,6 +237,66 @@ const RECIPES = [
   }*/
 ];
 
+// --- Stores Data ---
+const STORES = [
+  {
+    id: 1,
+    name: "Fresh Mushroom Hub",
+    description: "Premium quality fresh mushrooms delivered daily",
+    category: "Fresh Produce",
+    rating: 4.8,
+    deliveryTime: "30-45 min",
+    minOrder: "Rs. 500",
+    image: "bg-green-100",
+    icon: "🍄",
+    address: "Colombo 05",
+    phone: "+94 11 234 5678",
+    specialties: ["Button Mushrooms", "Oyster Mushrooms", "Shiitake"]
+  },
+  {
+    id: 2,
+    name: "Mushroom World",
+    description: "Wide variety of exotic and local mushrooms",
+    category: "Specialty Store",
+    rating: 4.6,
+    deliveryTime: "45-60 min",
+    minOrder: "Rs. 750",
+    image: "bg-amber-100",
+    icon: "🌍",
+    address: "Kandy",
+    phone: "+94 81 234 5678",
+    specialties: ["Lion's Mane", "Reishi", "Turkey Tail"]
+  },
+  {
+    id: 3,
+    name: "Organic Fungi",
+    description: "100% organic and sustainably grown mushrooms",
+    category: "Organic",
+    rating: 4.9,
+    deliveryTime: "60-90 min",
+    minOrder: "Rs. 1000",
+    image: "bg-emerald-100",
+    icon: "🌿",
+    address: "Galle",
+    phone: "+94 91 234 5678",
+    specialties: ["Portobello", "Cremini", "Enoki"]
+  },
+  {
+    id: 4,
+    name: "Mushroom Express",
+    description: "Fast delivery of fresh mushrooms and mushroom products",
+    category: "Delivery Service",
+    rating: 4.5,
+    deliveryTime: "20-30 min",
+    minOrder: "Rs. 300",
+    image: "bg-blue-100",
+    icon: "🚚",
+    address: "Negombo",
+    phone: "+94 31 234 5678",
+    specialties: ["Mixed Varieties", "Mushroom Sauces", "Dried Mushrooms"]
+  }
+];
+
 // --- Components ---
 
 const Header = ({ onNavigate, currentView, toggleMobileMenu, isMobileMenuOpen }) => (
@@ -248,7 +309,7 @@ const Header = ({ onNavigate, currentView, toggleMobileMenu, isMobileMenuOpen })
         <div className="bg-amber-600 p-2 rounded-lg">
           <ChefHat size={24} className="text-white" />
         </div>
-        <span className="text-2xl font-bold tracking-tight text-amber-50">Shroom<span className="text-amber-500">Chef</span></span>
+        <span className="text-2xl font-bold tracking-tight text-amber-50">Shenal<span className="text-amber-500"> Mushrooms</span></span>
       </div>
 
       <nav className="hidden md:flex space-x-8 font-medium">
@@ -259,10 +320,10 @@ const Header = ({ onNavigate, currentView, toggleMobileMenu, isMobileMenuOpen })
           Recipes
         </button>
         <button 
-          onClick={() => onNavigate('favorites')} 
-          className={`hover:text-amber-500 transition-colors ${currentView === 'favorites' ? 'text-amber-500' : ''}`}
+          onClick={() => onNavigate('stores')} 
+          className={`hover:text-amber-500 transition-colors ${currentView === 'stores' ? 'text-amber-500' : ''}`}
         >
-          Favorites
+          Stores
         </button>
         <button className="hover:text-amber-500 transition-colors">Techniques</button>
         <button className="hover:text-amber-500 transition-colors">About</button>
@@ -279,7 +340,7 @@ const Header = ({ onNavigate, currentView, toggleMobileMenu, isMobileMenuOpen })
       <div className="md:hidden bg-stone-800 border-t border-stone-700">
         <div className="flex flex-col p-4 space-y-4">
           <button onClick={() => { onNavigate('home'); toggleMobileMenu(); }} className="text-left py-2 border-b border-stone-700">Recipes</button>
-          <button onClick={() => { onNavigate('favorites'); toggleMobileMenu(); }} className="text-left py-2 border-b border-stone-700">Favorites</button>
+          <button onClick={() => { onNavigate('stores'); toggleMobileMenu(); }} className="text-left py-2 border-b border-stone-700">Stores</button>
           <button className="text-left py-2 border-b border-stone-700">Techniques</button>
           <button className="text-left py-2">About</button>
         </div>
@@ -288,28 +349,36 @@ const Header = ({ onNavigate, currentView, toggleMobileMenu, isMobileMenuOpen })
   </header>
 );
 
-const Hero = () => (
+const Hero = ({ onNavigate }) => (
   <div className="relative bg-stone-800 text-stone-100 py-20 px-4 overflow-hidden">
-    {/* Abstract Background Pattern */}
+    {/* Background Image */}
     <div className="absolute inset-0 opacity-10 pointer-events-none">
-      <div className="absolute top-10 left-10 text-9xl">🍄</div>
-      <div className="absolute bottom-10 right-10 text-9xl">🥘</div>
-      <div className="absolute top-20 right-1/4 text-8xl transform rotate-45">🥬</div>
+      <img 
+        src={wallImage} 
+        alt="Background" 
+        className="w-full h-full object-cover"
+      />
     </div>
     
     <div className="container mx-auto text-center relative z-10">
       <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
-        Earth's Hidden <span className="text-amber-500">Treasures</span>
+        මහ පොළොවේ <span className="text-amber-500">නිධානය</span>
       </h1>
       <p className="text-xl md:text-2xl text-stone-300 mb-8 max-w-2xl mx-auto">
-        Discover the art of cooking with fungi. From rustic risottos to modern mushroom steaks.
+        සම්ප්‍රදායික රසයෙන් නවීන රසයට කොයි කවුරුත් ආසවන බිම්මල් කලාවේ රස රහස්  
       </p>
       <div className="flex justify-center gap-4">
-        <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg hover:shadow-amber-900/50">
-          Explore Recipes
+        <button 
+          onClick={() => onNavigate('home', 'recipes')}
+          className="bg-stone-700 hover:bg-stone-600 text-white px-8 py-3 rounded-full font-semibold transition-all"
+        >
+          වට්ටෝරු
         </button>
-        <button className="bg-stone-700 hover:bg-stone-600 text-white px-8 py-3 rounded-full font-semibold transition-all">
-          Mushroom Guide
+        <button 
+          onClick={() => onNavigate('home', 'stores')}
+          className="bg-stone-700 hover:bg-stone-600 text-white px-8 py-3 rounded-full font-semibold transition-all"
+        >
+          බිම්මල් මිලදී ගත හැකි ස්ථාන
         </button>
       </div>
     </div>
@@ -318,7 +387,7 @@ const Hero = () => (
 
 const RecipeCard = ({ recipe, onClick, isFavorite, toggleFavorite }) => (
   <div 
-    className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 overflow-hidden cursor-pointer flex flex-col h-full"
+    className="group bg-white rounded-2xl shadow-xl transition-all duration-300 border border-stone-100 overflow-hidden cursor-pointer flex flex-col h-full"
     onClick={onClick}
   >
     <div className={`h-48 ${recipe.image ? '' : recipe.imageColor} flex items-center justify-center text-7xl relative overflow-hidden`}>
@@ -367,6 +436,57 @@ const RecipeCard = ({ recipe, onClick, isFavorite, toggleFavorite }) => (
         <div className="flex items-center gap-1">
           <Users size={16} />
           <span>{recipe.servings}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const StoreCard = ({ store, onClick }) => (
+  <div 
+    className="group bg-white rounded-2xl shadow-xl transition-all duration-300 border border-stone-100 overflow-hidden cursor-pointer flex flex-col h-full"
+    onClick={onClick}
+  >
+    <div className={`h-48 ${store.image} flex items-center justify-center text-7xl relative overflow-hidden`}>
+      <span className="transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">{store.icon}</span>
+      <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-stone-700 uppercase tracking-wide">
+        {store.category}
+      </div>
+      <div className="absolute bottom-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+        ⭐ {store.rating}
+      </div>
+    </div>
+    
+    <div className="p-5 flex-grow flex flex-col">
+      <div className="flex justify-between items-start mb-2">
+        <h3 className="text-xl font-bold text-stone-800 leading-tight group-hover:text-amber-600 transition-colors">
+          {store.name}
+        </h3>
+      </div>
+      
+      <p className="text-stone-500 text-sm mb-4 line-clamp-2 flex-grow">
+        {store.description}
+      </p>
+      
+      <div className="space-y-3 border-t border-stone-100 pt-4 mt-auto">
+        <div className="flex items-center justify-between text-sm">
+          <span className="text-stone-600">🚚 {store.deliveryTime}</span>
+          <span className="text-stone-600">🛒 {store.minOrder}</span>
+        </div>
+        <div className="text-xs text-stone-500">
+          📍 {store.address}
+        </div>
+        <div className="flex flex-wrap gap-1 mt-2">
+          {store.specialties.slice(0, 2).map((specialty, idx) => (
+            <span key={idx} className="bg-amber-50 text-amber-700 px-2 py-1 rounded-full text-xs">
+              {specialty}
+            </span>
+          ))}
+          {store.specialties.length > 2 && (
+            <span className="bg-stone-100 text-stone-600 px-2 py-1 rounded-full text-xs">
+              +{store.specialties.length - 2} more
+            </span>
+          )}
         </div>
       </div>
     </div>
@@ -475,7 +595,7 @@ const RecipeDetail = ({ recipe, onBack, isFavorite, toggleFavorite }) => (
           
           <div className="mt-12 p-8 bg-stone-900 rounded-2xl text-stone-300 text-center">
              <h4 className="text-xl font-bold text-white mb-2">Enjoy your meal!</h4>
-             <p>Did you make this recipe? Share it with #ShroomChef</p>
+             <p>Did you make this recipe? Share it with #ShenalMushrooms</p>
           </div>
         </div>
       </div>
@@ -486,8 +606,10 @@ const RecipeDetail = ({ recipe, onBack, isFavorite, toggleFavorite }) => (
 // --- Main App Component ---
 
 export default function App() {
-  const [view, setView] = useState('home'); // home, detail, favorites
+  const [view, setView] = useState('home'); // home, detail, stores
+  const [contentType, setContentType] = useState('recipes'); // recipes, stores
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [selectedStore, setSelectedStore] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
@@ -508,13 +630,22 @@ export default function App() {
                           recipe.ingredients.some(i => i.toLowerCase().includes(searchQuery.toLowerCase()));
     const matchesCategory = activeCategory === 'All' || recipe.category === activeCategory;
     
-    if (view === 'favorites') {
-       return matchesSearch && matchesCategory && favorites.includes(recipe.id);
-    }
     return matchesSearch && matchesCategory;
   });
 
-  const categories = ['All', ...new Set(RECIPES.map(r => r.category))];
+  // Filter stores logic
+  const filteredStores = STORES.filter(store => {
+    const matchesSearch = store.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          store.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          store.specialties.some(s => s.toLowerCase().includes(searchQuery.toLowerCase()));
+    const matchesCategory = activeCategory === 'All' || store.category === activeCategory;
+    
+    return matchesSearch && matchesCategory;
+  });
+
+  const categories = contentType === 'stores' 
+    ? ['All', ...new Set(STORES.map(s => s.category))]
+    : ['All', ...new Set(RECIPES.map(r => r.category))];
 
   const handleRecipeClick = (recipe) => {
     setSelectedRecipe(recipe);
@@ -522,8 +653,15 @@ export default function App() {
     window.scrollTo(0, 0);
   };
 
-  const handleNavigate = (page) => {
+  const handleStoreClick = (store) => {
+    setSelectedStore(store);
+    setView('detail');
+    window.scrollTo(0, 0);
+  };
+
+  const handleNavigate = (page, type = 'recipes') => {
     setView(page);
+    setContentType(type);
     setActiveCategory('All');
     setSearchQuery('');
     window.scrollTo(0, 0);
@@ -538,7 +676,7 @@ export default function App() {
         isMobileMenuOpen={isMobileMenuOpen}
       />
 
-      {view === 'home' && <Hero />}
+      {view === 'home' && <Hero onNavigate={handleNavigate} />}
 
       <main className="pb-20">
         {view === 'detail' && selectedRecipe ? (
@@ -554,7 +692,7 @@ export default function App() {
             {/* View Title */}
             <div className="mb-8 text-center">
                <h2 className="text-3xl font-bold text-stone-800">
-                 {view === 'favorites' ? 'Your Favorite Recipes' : 'බිම්මල් වට්ටෝරු'}
+                 {contentType === 'stores' ? 'බිම්මල් මිලදී ගත හැකි ස්ථාන' : 'බිම්මල් වට්ටෝරු'}
                </h2>
                <div className="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
             </div>
@@ -581,7 +719,7 @@ export default function App() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-stone-400" size={18} />
                 <input
                   type="text"
-                  placeholder="Search mushrooms..."
+                  placeholder={contentType === 'stores' ? "Search stores..." : "Search mushrooms..."}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2.5 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-stone-700 placeholder-stone-400"
@@ -590,38 +728,50 @@ export default function App() {
             </div>
 
             {/* Empty State */}
-            {filteredRecipes.length === 0 && (
+            {(contentType === 'stores' ? filteredStores.length === 0 : filteredRecipes.length === 0) && (
               <div className="text-center py-20 bg-white rounded-3xl border border-stone-100 border-dashed">
-                <div className="text-6xl mb-4">🍄</div>
-                <h3 className="text-xl font-bold text-stone-700 mb-2">No recipes found</h3>
+                <div className="text-6xl mb-4">{contentType === 'stores' ? '🏪' : '🍄'}</div>
+                <h3 className="text-xl font-bold text-stone-700 mb-2">
+                  {contentType === 'stores' ? 'No stores found' : 'No recipes found'}
+                </h3>
                 <p className="text-stone-500">
-                  {view === 'favorites' 
-                    ? "You haven't saved any favorites yet. Go explore!" 
+                  {contentType === 'stores' 
+                    ? "Try adjusting your search terms or browse all categories." 
                     : "Try adjusting your search terms."}
                 </p>
-                {view === 'favorites' && (
-                  <button 
-                    onClick={() => handleNavigate('home')}
-                    className="mt-6 text-amber-600 font-medium hover:underline"
-                  >
-                    Browse Recipes
-                  </button>
-                )}
               </div>
             )}
 
             {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredRecipes.map(recipe => (
-                <RecipeCard 
-                  key={recipe.id} 
-                  recipe={recipe} 
-                  onClick={() => handleRecipeClick(recipe)}
-                  isFavorite={favorites.includes(recipe.id)}
-                  toggleFavorite={toggleFavorite}
-                />
-              ))}
-            </div>
+            {contentType === 'stores' ? (
+              /* Stores Only */
+              <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredStores.map(store => (
+                    <StoreCard 
+                      key={store.id} 
+                      store={store} 
+                      onClick={() => handleStoreClick(store)}
+                    />
+                  ))}
+                </div>
+              </div>
+            ) : (
+              /* Recipes Only */
+              <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredRecipes.map(recipe => (
+                    <RecipeCard 
+                      key={recipe.id} 
+                      recipe={recipe} 
+                      onClick={() => handleRecipeClick(recipe)}
+                      isFavorite={favorites.includes(recipe.id)}
+                      toggleFavorite={toggleFavorite}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </main>
@@ -631,7 +781,7 @@ export default function App() {
            <div className="col-span-1 md:col-span-2">
              <div className="flex items-center space-x-2 mb-4">
                <ChefHat className="text-amber-500" size={24} />
-               <span className="text-xl font-bold text-white">ShroomChef</span>
+               <span className="text-xl font-bold text-white">ShenalMushrooms</span>
              </div>
              <p className="max-w-xs text-sm leading-relaxed">
                Dedicated to the wonderful world of fungi cooking. Healthy, sustainable, and absolutely delicious.
@@ -658,7 +808,7 @@ export default function App() {
            </div>
         </div>
         <div className="border-t border-stone-800 mt-12 pt-8 text-center text-xs">
-          © {new Date().getFullYear()} ShroomChef. All rights reserved.
+          © {new Date().getFullYear()} ShenalMushrooms. All rights reserved.
         </div>
       </footer>
     </div>
