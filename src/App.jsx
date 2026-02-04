@@ -13,6 +13,7 @@ import {
   Info
 } from 'lucide-react';
 import biteImage from './assets/bite.png';
+import snackImage from './assets/snack.png';
 
 // --- Mock Data ---
 const RECIPES = [
@@ -27,6 +28,7 @@ const RECIPES = [
     calories: 450,
     difficulty: "Easy",
     image: biteImage,
+    videoLink: "https://youtu.be/OPnChfoP9vo?si=IcHXMeTyp0zXiXHm",
     icon: "🍄",
     ingredients: [
       "බිම්මල් 🍄 - 200g",
@@ -61,37 +63,41 @@ const RECIPES = [
       "අවශ්‍ය පරිදි ලුණු එක් කර ගන්න",
     ]
   },
-  /*{
+  {
     id: 2,
-    title: "Garlic Butter Stuffed Portobellos",
-    description: "Juicy portobello caps stuffed with a savory mix of spinach, cheese, and breadcrumbs.",
-    category: "Appetizer",
-    prepTime: "15 min",
-    cookTime: "20 min",
+    title: "Mushroom Snack",
+    description: "Crispy රසට බිම්මල්",
+    category: "සුළු ආහාර",
+    prepTime: "විනාඩි 10",
+    cookTime: "විනාඩි 10",
     servings: 4,
     difficulty: "Easy",
     calories: 220,
-    imageColor: "bg-orange-100",
+    image:snackImage,
+    videoLink: "https://youtu.be/C9p5_4jB8zY?si=tFtHl-okhbYG8yyB",
     icon: "🥘",
     ingredients: [
-      "4 large Portobello mushrooms, stems removed",
-      "3 tbsp butter, melted",
-      "2 cloves garlic, minced",
-      "1 cup fresh spinach, chopped",
-      "1/2 cup mozzarella cheese",
-      "1/4 cup panko breadcrumbs",
-      "1 tbsp parsley"
+      "බිම්මල් 🍄 - 200g",
+      "පාන් පිටි 🍞 - මේස හැදි 2 ",
+      "ඉරිඟු පිටි 🌽 - මේස හැදි 2",
+      "කැලි මිරිස්🌶️ - මේස හැදි 1 ",
+      "ගම්මිරිස් කුඩු ⚫ - තේ හැදි 1",
+      "තලා ගත් ඉගුරු සුදු ලූණු 🫚🧄 - මේස හැදි 1",
+      "හොදින් තලා ගත් ලොකු ලූණු 🧅 - මේස හැදි 2",
+      "කහ කුඩු 🌿- තේ හැදි 1/4 ",
+      "සෝයා සෝස් 🍶 - තේ හැදි  1 ",
+      "තක්කාලි සෝස් 🍅 - මේස හැදි  1",
+      "ලුණු 🧂",
     ],
     instructions: [
-      "Preheat oven to 400°F (200°C).",
-      "Brush mushroom caps with garlic butter and place gill-side up on baking sheet.",
-      "Mix spinach, cheese, and breadcrumbs in a bowl.",
-      "Fill mushroom caps with the mixture.",
-      "Bake for 15-20 minutes until cheese is bubbly and mushrooms are tender.",
-      "Garnish with parsley and serve warm."
+      "බිම්මල් ලුණු වතුරෙන් සෝදා හොඳින් වතුර ඉවත් කර ගන්න.",
+      "බෝල් එකක් ගෙන පාන් පිටි මේස හැදි 2ක්, ඉරිඟු පිටි මේස හැදි 2ක්, අවශ්‍ය නම් බිත්තර 1ක්, කැලි මිරිස් මේස හැදි 1ක්, ගම්මිරිස් කුඩු තේ හැදි 1ක්, තලා ගත් ඉගුරු සුදු ලූණු තේ හැදි 1ක්, තලා ගත් ලොකු ලූණු මේස හැදි 2ක්, කහ කුඩු තේ හැදි 1/4ක්, සෝයා සෝස් තේ හැදි 1ක්, තක්කාලි සෝස් මේස හැදි 1ක්, ලුණු ස්වල්පයක් එකතු කර, වතුර එකතු කර හොඳින් මිශ්‍ර කර ගන්න (මිශ්‍රණය උකු විය යුතුයි).",
+      "හොඳින් වතුර ඉවත් කරගත් බිම්මල් පිටි මිශ්‍රණයෙන් තවරා ගන්න.",
+      "තච්චියට තෙල් දමා සාමාන්‍ය ගින්දරින් හොඳින් බැඳගන්න.",
+
     ]
   },
-  {
+  /*{
     id: 3,
     title: "Crispy Enoki Mushroom Pancakes",
     description: "Crunchy, golden bites perfect for dipping. A popular East Asian snack.",
@@ -375,7 +381,7 @@ const RecipeDetail = ({ recipe, onBack, isFavorite, toggleFavorite }) => (
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
-        {!recipe.image && (
+        {(recipe.image || !recipe.image) && (
           <div className="absolute inset-0 bg-gradient-to-b from-black/500 via-black/700 to-black/900"></div>
         )}
         <div className="relative z-10">
@@ -426,9 +432,13 @@ const RecipeDetail = ({ recipe, onBack, isFavorite, toggleFavorite }) => (
           <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100">
              <h4 className="font-bold text-amber-900 mb-2 text-sm uppercase tracking-wider">Chef's Tip</h4>
              <p className="text-amber-800 text-sm italic">
-               <a href="https://youtu.be/OPnChfoP9vo?si=IcHXMeTyp0zXiXHm" target="_blank" rel="noopener noreferrer">
-                👉 Watch the video tutorial here
-               </a>
+               {recipe.videoLink ? (
+                 <a href={recipe.videoLink} target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 transition-colors">
+                   👉 Watch the video tutorial here
+                 </a>
+               ) : (
+                 "For the best texture, never wash mushrooms with water! Instead, gently wipe them clean with a damp cloth or a brush."
+               )}
              </p>
           </div>
         </div>
@@ -532,7 +542,7 @@ export default function App() {
             {/* View Title */}
             <div className="mb-8 text-center">
                <h2 className="text-3xl font-bold text-stone-800">
-                 {view === 'favorites' ? 'Your Favorite Recipes' : 'Latest Creations'}
+                 {view === 'favorites' ? 'Your Favorite Recipes' : 'බිම්මල් වට්ටෝරු'}
                </h2>
                <div className="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
             </div>
