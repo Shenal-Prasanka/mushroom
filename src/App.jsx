@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import biteImage from './assets/bite.png';
 import snackImage from './assets/snack.png';
+import mojuImage from './assets/moju.png';
 
 // --- Mock Data ---
 const RECIPES = [
@@ -97,38 +98,49 @@ const RECIPES = [
 
     ]
   },
-  /*{
+  {
     id: 3,
-    title: "Crispy Enoki Mushroom Pancakes",
-    description: "Crunchy, golden bites perfect for dipping. A popular East Asian snack.",
-    category: "Snack",
-    prepTime: "10 min",
-    cookTime: "10 min",
+    title: "බිම්මල් මෝජු",
+    description: "සරලව, නිවැරදිව බිම්මල් මෝජු සදාගමු.",
+    category: "බිම්මල් වයංජන",
+    prepTime: "විනාඩි 10",
+    cookTime: "විනාඩි 10",
     servings: 2,
     difficulty: "Easy",
     calories: 180,
-    imageColor: "bg-yellow-100",
+    image: mojuImage,
+    videoLink: "https://youtu.be/DnoV3oIWVLg?si=RqPz_F6FqlqwLhNz",
     icon: "🥞",
     ingredients: [
-      "2 packs Enoki mushrooms",
-      "1 large egg",
-      "1/2 cup all-purpose flour",
-      "2 tbsp cornstarch",
-      "1 tsp sesame oil",
-      "Salt and pepper",
-      "Vegetable oil for frying",
-      "Soy sauce for dipping"
+      "බිම්මල් 🍄- 200g",
+      "හාල් මැස්සෝ 🐟- 50g",
+      "රටඉදි 🌰-50g",
+      "රතු ලුණු 🧅-50g",
+      "අමුමිරිස් 🌶️- 10යි",
+      "කුරුදු පොතු කැබැල්ලක් 🌿",
+      "කරදමුංගු ⚫- කරල් 3ක්",
+      "සුදුලුනු 🧄- බික් 2ක් ",
+      "අබ ⚫- තේ හැදි 1/2",
+      "අමු ඉගුරු කැබැල්ලක් 🌿",
+      "මිරිස්කුඩු 🌶️ - තේ හැදී 1/2",
+      "විනාකිරි 🍶 - තේ හැදී 1",
+      "බැදගැනීමට පොල් තෙල් 🥥",
+      "කහකුඩු 🌿 - තේ හැදී 1/4",
+      "රසය අනුව ලුණු 🧂",
     ],
     instructions: [
-      "Trim the roots of the Enoki mushrooms and separate into small bunches.",
-      "Whisk egg, flour, cornstarch, sesame oil, salt, and pepper into a batter.",
-      "Dip mushroom bunches into the batter.",
-      "Heat oil in a pan over medium heat.",
-      "Fry mushrooms until golden brown and crispy (about 2-3 mins per side).",
-      "Serve immediately with dipping sauce."
+      "බිම්මල් සිහින්ව ඉරන්න.",
+      "බෝල් එකක් ගෙන බිම්මල් දමන්න සහ උණු වතුර එකතු කර විනාඩි 10 පියනකින් වසා තබන්න",
+      "රටඉදි 50g, සුදුලුනු බික් 2ක්, කුරුදු පොතු කැබැල්ලක්, අබ තේ හැදි 1/2, අමු ඉගුරු කැබැල්ලක්, කරදමුංගු කරල් 3ක්, විනකිරි ස්වල්පයක් සමඟ මිශ්‍ර කර හොඳින් අඹරා ගන්න.",
+      "බිම්මල්වල හොඳින් වතුර ඉවත් කර ගන්න.",
+      "වතුර ඉවත් කර ගන් බිම්මල් වලට ලුණු තේ හැදී 1/4 සහ කහකුඩු තේ හැදී 1/4 එකතු කර හොදීන් මික්ස් කර ගබුරු තෙල් වල රන්වන් පාට වෙනකන් හොදීන් බැඳගන්න.",
+      "හාල් මැස්සෝ 50g ගබුරු තෙල් වල හොදීන් බැඳගන්න.",
+      "රතු ලුණු සහ අමුමිරිස් තත්පර 10ක් වෙන වෙනම බැඳගන්න.",
+      "අඹරා ගන් මිශ්‍රණය බෝල් එකකට දමා කහකුඩු තේ හැදී 1/4 දමා හොදීන් මික්ස් කර ගන්න.",
+      "මිශ්‍රණයට බැඳගන් රතු ලුණු, අමුමිරිස්, හාල් මැස්සෝ, බිම්මල් දමා හොදීන් මික්ස් කර ගන්න.",
     ]
   },
-  {
+  /*{
     id: 4,
     title: "Classic Mushroom Stroganoff",
     description: "A hearty vegetarian twist on the Russian classic, served over egg noodles.",
